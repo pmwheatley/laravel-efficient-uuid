@@ -17,7 +17,8 @@ class EfficientUuid implements CastsAttributes
      */
     public function get($model, string $key, $value, array $attributes)
     {
-        return $model->resolveUuid()->fromBytes($value)->toString();
+
+        return is_null($value) ? null : $model->resolveUuid()->fromBytes($value)->toString();
     }
 
     /**
